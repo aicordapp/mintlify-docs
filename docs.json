@@ -68,5 +68,8 @@
   "logo": "/images/logo_new.png",
   "background": {
     "decoration": "gradient"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
   }
 }
