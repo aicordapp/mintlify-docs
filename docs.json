@@ -18,11 +18,11 @@
     "tabs": [
       {
         "tab": "Documentation",
-        "groups": [
+        "pages": [
+          "introduction",
           {
             "group": "Get Started",
             "pages": [
-              "introduction",
               "frequently-asked-questions"
             ]
           },
