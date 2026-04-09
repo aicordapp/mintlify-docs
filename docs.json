@@ -4,8 +4,9 @@
   "theme": "almond",
   "favicon": "https://media.brand.dev/9612dbb1-3d59-484d-bdc5-fd9353b69e16.png",
   "colors": {
-    "primary": "#accb83",
-    "light": "#7284fc"
+    "primary": "#AFC882",
+    "light": "#AFC882",
+    "dark": "#AFC882"
   },
   "navbar": {
     "primary": {
