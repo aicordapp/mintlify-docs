@@ -19,10 +19,10 @@
       {
         "tab": "Documentation",
         "pages": [
-          "introduction",
           {
             "group": "Get Started",
             "pages": [
+              "introduction",
               "frequently-asked-questions"
             ]
           },
