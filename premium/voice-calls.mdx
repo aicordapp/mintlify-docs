@@ -1,0 +1,41 @@
+---
+title: Voice Calls
+description: Call your AI characters in real time — either through a Discord voice channel or directly on the AICord dashboard.
+---
+
+Premium users can have live voice conversations with their AI characters. There are two ways to call a character: through a **Discord voice channel** (with multiple participants) or through the **AICord dashboard** (one-on-one).
+
+<Tabs>
+  <Tab title="Discord voice channel">
+    You can invite a character into a Discord voice channel so multiple people can talk to it at the same time.
+
+    <Warning>
+      Characters are created as **webhooks** by default, and Discord webhooks cannot join voice channels. You must enable **Bot Mode** for the character first before it can participate in voice calls. See [Bot Mode](/ai-characters/bot-mode) for setup instructions.
+    </Warning>
+
+    Once Bot Mode is enabled and your character's bot is online in your server:
+
+    1. Join a voice channel in your Discord server.
+    2. Use `/call` to have the character join the channel.
+    3. Use `/endcall` when you are done — this ends the session and the character leaves the channel.
+
+    **Troubleshooting:**
+    - Make sure the character has a voice set. A character without a voice cannot participate in calls.
+    - If the experimental real-time mode is active, disable it with `/togglert` before starting a call — it can cause slow responses.
+
+    <Tip>
+      For faster response times during calls, upload a custom `.wav` voice sample for your character. This uses a different (faster) voice model compared to the default presets.
+    </Tip>
+  </Tab>
+  <Tab title="Dashboard">
+    You can also call characters directly from AICord's website without needing Bot Mode.
+
+    1. Go to [aicordapp.com/chat](https://aicordapp.com/chat).
+    2. If you don't see any characters in the chat interface, open the characters page on the dashboard and click the **DM** button on the character you want to call.
+    3. Once in a DM channel with the character, click the **call button** to start a voice session.
+
+    <Note>
+      Dashboard calls are currently only reliable in DM channels (one user to one character). Group call support on the dashboard is not yet available.
+    </Note>
+  </Tab>
+</Tabs>

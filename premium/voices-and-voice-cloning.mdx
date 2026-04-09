@@ -1,0 +1,59 @@
+---
+title: Voices & Voice Cloning
+description: Give your AI characters a voice — use built-in presets on the Basic plan or clone any voice from a real audio sample on the Advanced plan.
+---
+
+AICord lets your characters speak. Servers on the **Basic plan** get access to a set of default voice presets, so characters can send voice messages right away. Servers on the **Advanced plan** (and above) can go further and clone a custom voice from an audio sample — making the character sound like anyone you choose.
+
+<Warning>
+  Voice cloning requires the **Advanced plan** or higher. Basic plan servers can use default voice presets but cannot clone custom voices.
+</Warning>
+
+<Steps>
+  <Step title="Enable voice messages for your character">
+    Before a character can send voice messages, you need to turn the feature on:
+
+    1. Go to the [AICord Dashboard](https://dashboard.aicordapp.com).
+    2. Select the character you want to edit.
+    3. Scroll down to the **Advanced** section (or use the sidebar to jump directly to it).
+    4. Under **Time and Memory**, enable **"Voice messages"**.
+
+    Once enabled, your character will randomly send voice messages when users chat with it in your server.
+  </Step>
+
+  <Step title="Clone a voice using an audio sample">
+    <Warning>
+      This step requires the **Advanced plan**. If you are on the Basic plan, you can skip this step and choose from the available default voice presets instead.
+    </Warning>
+
+    You can clone a voice in two ways:
+
+    <Tabs>
+      <Tab title="Option A — Dashboard">
+        1. Open the [AICord Dashboard](https://aicordapp.com/dashboard) and select the character you want to edit.
+        2. Navigate to **Character Editor** → **Voice**.
+        3. Upload your voice sample file. Once uploaded, the cloned voice will appear in the voice select menu alongside the default presets.
+        4. Select your cloned voice and save the character.
+      </Tab>
+      <Tab title="Option B — Slash command">
+        1. In your Discord server, run the slash command `/character clonevoice`.
+        2. Select the character you want to clone the voice for.
+        3. Attach your voice sample as a `.wav` file.
+
+        **Requirements for your voice sample:**
+        - Must be a clear, good-quality recording of a person speaking.
+        - Must be **at least 6 seconds long** for best results.
+
+        <Note>
+          Uploading a sample much longer than 6 seconds does not improve clone quality — but it does increase speech generation time, making the character slower to respond. Keep your sample close to 6 seconds.
+        </Note>
+      </Tab>
+    </Tabs>
+
+    After cloning, your character will use that voice when sending voice messages in Discord.
+  </Step>
+</Steps>
+
+<Note>
+  Cloned voices cannot currently be used for voice calls — only for voice messages. Support for cloned voices in calls is coming soon.
+</Note>

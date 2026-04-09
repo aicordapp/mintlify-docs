@@ -1,0 +1,156 @@
+---
+title: Applets
+description: Give your AI characters agentic capabilities with Applets — small JavaScript tools that can call APIs, fetch live data, and react to Discord events.
+---
+
+**Applets** are small JavaScript programs that run inside AICord's secure sandbox and give your AI characters the ability to interact with the real world. Instead of only responding from memory, a character with an applet can fetch live data, call external APIs, trigger webhooks, or react to server events — all as part of a natural conversation.
+
+> Think of applets as mini-apps your characters can use. They are plug-and-play extensions of a character's capabilities.
+
+**How applets work:**
+
+1. A user asks the character a question (for example, "What's the weather in London?").
+2. The character checks the applets available to it and reads their manifests to understand what each one does.
+3. AICord replaces any secret placeholders with the actual secret values.
+4. The character calls the right applet's `run` function, which executes your code in a sandboxed environment.
+5. The applet returns a string result.
+6. The character uses that result to form its reply to the user.
+
+---
+
+## Getting started
+
+<Steps>
+  <Step title="Open the Applets section">
+    Go to the [AICord Dashboard](https://aicordapp.com/dashboard) and click **Applets** in the sidebar.
+
+    You will see two sections:
+    - **Discover** — browse and install public applets made by other AICord users.
+    - **Installed** — the applets you have created or installed from the Discover tab.
+
+    <Note>
+      You can only edit the code of applets you created. For public applets you installed from Discover, you can only manage their secrets.
+    </Note>
+  </Step>
+  <Step title="Create a new applet">
+    Click the **+** button to create a new applet. This opens the **Applet Editor** with two main tabs: **Code** and **Manifest**.
+  </Step>
+  <Step title="Write your applet code and manifest">
+    Use the **Code** tab to write the applet logic and the **Manifest** tab to define its metadata and inputs. Both are covered in detail below.
+  </Step>
+</Steps>
+
+---
+
+## Code tab
+
+The Code tab is where you write your applet logic. Every applet must export at least one function. The most important one is `run`, which the character calls when it needs to use your applet as a tool.
+
+```javascript
+export async function run(myAppletInput) {
+  // Your code here — call an API, do calculations, etc.
+  return "The applet returns a string, and the character uses it in its response.";
+}
+```
+
+**Example — weather applet:**
+
+```javascript
+export async function run({ city }) {
+  const res = await fetch(`https://wttr.in/${city}?format=3`);
+  return await res.text();
+}
+```
+
+When a user asks the character about the weather in a city, the character calls this function with `{ "city": "London" }` (or whichever city was mentioned), and the applet returns a plain-text weather summary for the character to relay.
+
+---
+
+## Manifest tab
+
+The Manifest tab holds your applet's metadata in JSON format. It tells AICord — and the character — what your applet is called, what it does, and what inputs it expects.
+
+```json
+{
+  "name": "getWeather",
+  "description": "Gets weather of a specific city from wttr.in",
+  "visibility": "private",
+  "input": {
+    "city": "string"
+  },
+  "triggers": []
+}
+```
+
+### Manifest fields
+
+| Field | Type | Description |
+|---|---|---|
+| `name` | string | The name of the applet. The character uses this to identify and call it. |
+| `description` | string | A description of what the applet does. The character reads this to decide when to use it. |
+| `visibility` | string | Either `"public"` (visible to all AICord users) or `"private"` (only your server). |
+| `input` | object | Defines the input parameters the applet expects. Each key is a parameter name; the value is its data type (e.g. `"string"`). |
+| `triggers` | array | Lists which Discord events the applet responds to (e.g. `onGuildMemberAdd`). Leave empty `[]` if the applet is only used as a tool. |
+
+When the character calls your applet, it passes an object matching the `input` schema. For the weather example, it sends:
+
+```json
+{
+  "city": "Budapest"
+}
+```
+
+Your `run` function receives this as its argument. You can access the value directly (`input.city`) or destructure it (`{ city }`).
+
+---
+
+## Supported functions
+
+Each applet can export one or more named functions. AICord routes calls to the correct function based on context.
+
+| Function | Triggered when | Params |
+|---|---|---|
+| `run(input)` | The AI uses the applet as a tool (e.g. user asks a question the applet can answer) | Anything your applet requires |
+| `onGuildMemberAdd({user})` | A user joins the server | Discord `user` object |
+
+<Note>
+  More event triggers are coming soon. Suggest new ones in the AICord Discord server.
+</Note>
+
+---
+
+## Using secrets
+
+If your applet needs an API key or other sensitive value, do **not** hardcode it in the code. Instead, use a secret placeholder:
+
+```javascript
+const API_KEY = "{{OPENWEATHER_KEY}}";
+```
+
+When AICord runs your applet, it replaces `{{OPENWEATHER_KEY}}` with the actual value you configured in the dashboard. Your code stays clean and your keys stay safe.
+
+If your applet is public and another user installs it from Discover, they will need to supply their own secrets — your keys are never shared.
+
+<Warning>
+  Never hardcode actual API keys or secrets directly in your applet code. Use the `{{SECRET_NAME}}` placeholder pattern and define the value in the AICord Dashboard.
+</Warning>
+
+---
+
+## Limitations
+
+Applets run in a controlled Node.js sandbox. The following rules apply:
+
+| | What |
+|---|---|
+| Allowed | `fetch()` — make external API calls |
+| Allowed | `console.log()` — logs are visible in your dashboard |
+| Allowed | Multiple named export functions |
+| Allowed | Popular modules passed automatically by AICord (suggest additions in Discord) |
+| Not allowed | Third-party `import` or `require` statements |
+| Not allowed | `fs` or any file system access |
+| Not allowed | Code that runs longer than 60 seconds |
+
+<Note>
+  AICord is continuously expanding what applets can do. Check the [applet examples repository](https://github.com/aicordapp/applet-example) for sample code and templates.
+</Note>

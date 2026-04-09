@@ -1,0 +1,87 @@
+---
+title: Your First Character
+description: Create your first AI character in AICord using the Discord bot or the dashboard.
+---
+
+You can create an AI character in two ways: directly in Discord using a slash command, or through the AICord dashboard. The dashboard gives you more control over your character's settings, but the Discord method gets you up and running in seconds.
+
+<Tabs>
+  <Tab title="Discord Bot">
+    <Steps>
+      <Step title="Run the slash command">
+        Head to your Discord server and type `/character create` in any text channel. When the autocomplete menu appears, select the AICord command.
+      </Step>
+      <Step title="Choose a profile picture">
+        Select a picture for your character from the options that appear.
+      </Step>
+      <Step title="Set the gender">
+        Choose your character's gender from the dropdown.
+      </Step>
+      <Step title="Set the NSFW option">
+        Select **True** if your character is intended for adult audiences (18+). Otherwise, select **False**.
+
+        <Note>
+          NSFW characters only work in Discord channels that are marked as NSFW. They are not accessible to underage users or anyone who may find the content offensive. Everything generated with AICord is the sole responsibility of the user.
+        </Note>
+      </Step>
+      <Step title="Restrict to specific channels (optional)">
+        You can limit your character to one or more specific channels. This is a premium feature.
+
+        <Note>
+          If your character is set to NSFW and you select a non-NSFW channel, the NSFW setting may override your channel choice.
+        </Note>
+      </Step>
+      <Step title="Fill in the character details">
+        Press **Enter** to run the command. A modal will appear with the following fields:
+
+        - **Character name** — The name of your character. Other users can @mention it by this name.
+        - **Personality traits** — A comma-separated list of traits, for example: `kind, friendly, supportive`.
+        - **Context and additional prompt** — Describe who the character is, their backstory, and how they should respond. If your character is a well-known person, the AI can search the web, so you don't need to provide everything. For original characters, give enough context for the AI to understand their voice and role.
+
+        <Warning>
+          Avoid adding an excessively long context. Pasting entire Wikipedia articles or walls of text can confuse the AI and lead to poor or overly verbose responses. Keep it focused and purposeful.
+        </Warning>
+
+        When you're done, click **Submit**. Your character is created and ready to chat.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Dashboard">
+    <Steps>
+      <Step title="Log in to the dashboard">
+        Go to [dashboard.aicordapp.com](https://dashboard.aicordapp.com) and sign in with your Discord account. No separate registration is required.
+
+        After logging in, you'll be redirected to your server's home page. A dropdown in the side panel lists all servers where you have admin permissions and AICord is installed.
+      </Step>
+      <Step title="Select your server">
+        Click the server you want to manage characters for. You'll be taken to that server's dashboard, where you can see stats and a getting-started guide.
+
+        <Note>
+          You can only manage characters for servers where AICord is installed. If AICord hasn't been added to your server yet, you may see an error.
+        </Note>
+      </Step>
+      <Step title="Go to My Characters">
+        In the side panel, click the robot icon and select **My Characters**.
+      </Step>
+      <Step title="Create a new character">
+        If you haven't created any characters yet, you'll see a **Create a new character** button. Click it to open the character creation form.
+
+        Fill in the fields — name, personality, and context — then save. After creation, you can click **Edit** on the character to access more advanced settings.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Chatting with your character
+
+Once your character is created, you can chat with it by @mentioning its name or replying to one of its messages in your Discord server.
+
+<Note>
+  With an AICord Premium subscription, you unlock additional ways to interact with your characters:
+
+  - Start a chat session with `/character startsession` — your character will reply to every new message in that channel, and multiple characters can group-chat with each other and with humans.
+  - Voice call your characters from the dashboard (Discord call support coming soon).
+  - Characters can send and receive voice messages, and view images.
+  - Clone a custom voice for your character from an audio file.
+  - Characters can send you AI-generated images of themselves on request.
+</Note>

@@ -1,0 +1,54 @@
+---
+title: Prompt Commands
+description: Define custom in-chat commands that inject instructions into your character's context on the fly.
+---
+
+Prompt commands let you create custom shortcuts that temporarily modify how your character behaves — without editing the character's base prompt. When a user types a prompt command in chat, AICord injects the associated instruction into your character's context behind the scenes, as if you quietly whispered a new rule to the bot.
+
+Commands are defined when you edit a character on the dashboard.
+
+## Syntax
+
+Each command goes on its own line and follows this format:
+
+```text
+!command [param1] [param2] = Some instruction with [param1] and [param2]
+```
+
+- `!command` is the name users type in chat.
+- `[param1]`, `[param2]`, and so on are placeholders that get replaced with the values the user provides.
+- The text after `=` is the instruction injected into the character's context. Use the same placeholder names inside this instruction.
+
+## Example
+
+Define a command to change the scene:
+
+```text
+!setscene [place] [weather] = The scene is now set in [place], described vividly and with mood. The weather is [weather]
+```
+
+A user then types this in chat:
+
+```text
+!setscene forest cloudy
+```
+
+AICord injects the following into the character's context:
+
+```text
+The scene is now set in forest, described vividly and with mood. The weather is cloudy
+```
+
+Your character will now respond as if it's in a foggy forest — no need to edit the character prompt or restart anything.
+
+## What you can use prompt commands for
+
+- **Changing tone** — for example, `!mood catboy flirty` shifts how the character speaks.
+- **Switching response style** — for example, `!short` instructs the character to keep replies brief.
+- **Enabling content modes** — for example, `!enableviolence` unlocks a specific type of content for the session.
+- **Controlling roleplay** — for example, `!dm [location]` sets the current location for a D&D-style session.
+- Anything else your use case requires — prompt commands are flexible by design.
+
+## Where to define commands
+
+You define prompt commands in the AICord dashboard when editing a character. Open the character editor, find the **Prompt Commands** section, and add one command per line using the syntax above.

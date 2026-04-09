@@ -1,0 +1,93 @@
+{
+  "projectType": "saas",
+  "projectName": "AICord",
+  "projectDescription": "AICord is an AI-powered Discord bot that lets server admins create customizable AI characters for chat, roleplay, image generation, voice calls, and agentic automations.",
+  "theme": "almond",
+  "primaryColor": "#accb83",
+  "lightColor": "#7284fc",
+  "darkColor": null,
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "frequently-asked-questions"
+            ]
+          },
+          {
+            "group": "AI Characters",
+            "pages": [
+              "ai-characters/your-first-character",
+              "ai-characters/bot-mode",
+              "ai-characters/prompt-commands"
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "features/commands",
+              "features/image-generation",
+              "features/persistent-memory",
+              "features/ai-models"
+            ]
+          },
+          {
+            "group": "Premium",
+            "pages": [
+              "premium/overview",
+              "premium/voices-and-voice-cloning",
+              "premium/voice-calls",
+              "premium/god-mode-prompt",
+              "premium/applets"
+            ]
+          },
+          {
+            "group": "Legal",
+            "pages": [
+              "legal/privacy-policy",
+              "legal/terms-of-service",
+              "legal/data-retention"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Create and manage AI characters with custom personalities and backstories",
+    "Bot mode: give each AI character its own Discord bot identity",
+    "Prompt commands for dynamic in-chat character control",
+    "Image generation with Flux, Stable Diffusion, and Animagine",
+    "Voice messages and voice cloning for characters",
+    "Voice calls with AI characters in Discord or on the dashboard",
+    "Persistent long-term memory per character",
+    "God mode prompt for full system-prompt customization",
+    "AICord Applets: JavaScript mini-apps that give characters agentic capabilities",
+    "Text generation, summarization, and document Q&A slash commands",
+    "Token-based usage system with free and premium tiers"
+  ],
+  "publicApiSurface": [
+    "/character create",
+    "/character startsession",
+    "/character clonevoice",
+    "/call",
+    "/endcall",
+    "/togglert",
+    "/imagine [prompt] [style]",
+    "/write [prompt]",
+    "/image ask [image] [question]",
+    "/createrecipe [image]",
+    "/askdocument [document] [question]",
+    "/summarize webpage [url]",
+    "/token claim",
+    "Applet run(input) function",
+    "Applet onGuildMemberAdd({user}) event",
+    "Applet manifest (name, description, visibility, input, triggers)",
+    "God mode prompt template variables ({name}, {context}, {personality}, {appearance}, {memories}, etc.)",
+    "God mode conditional blocks ([is_style_human], [is_style_roleplay], [is_style_narrator])"
+  ]
+}

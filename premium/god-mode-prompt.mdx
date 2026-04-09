@@ -1,0 +1,178 @@
+---
+title: God Mode Prompt
+description: Replace AICord's default system prompt entirely and take full control of how your AI character thinks, speaks, and behaves.
+---
+
+By default, AICord uses its own system prompt to instruct the AI model how to roleplay as your character — including its boundaries, style, and formatting rules. **God Mode Prompt** lets you replace that system prompt entirely with your own, giving you complete control over every aspect of character behavior.
+
+With God Mode Prompt you can, for example:
+- Make a character stop roleplaying entirely and behave as a plain homework assistant.
+- Force a character to narrate everything in third person.
+- Write your own rules about tone, formatting, and content from scratch.
+
+<Warning>
+  God Mode Prompt **completely overwrites** AICord's default system instructions. If your prompt is incomplete or incorrect, your character may break or behave unexpectedly. The AICord team provides no support for malfunctioning God Mode prompts. Proceed only if you understand what you are doing.
+</Warning>
+
+---
+
+## Best practices
+
+### Keep prompts structured
+
+Use clear, labeled sections so the AI model stays consistent. XML-style tags work well:
+
+```text
+<context>...</context>
+<personality>...</personality>
+<rules>...</rules>
+<knowledge>...</knowledge>
+```
+
+Plain headings also work:
+
+```text
+Context:
+...
+
+Personality:
+...
+```
+
+Structured prompts reduce confusion and help the model follow your instructions reliably.
+
+### Avoid overly long or detailed prompts
+
+Large prompts waste tokens and can actually reduce response quality. Simpler prompts usually outperform dense ones. Focus on:
+
+- Key personality traits
+- Relevant knowledge
+- Important rules
+
+Think of your prompt as giving clear, simple instructions — not dumping an entire lore bible into the system.
+
+---
+
+## Prompt templates
+
+When writing your God Mode Prompt, you can use **template variables** and **conditional blocks** to inject AICord character data dynamically. This keeps your prompt structured while automatically filling in the right values at runtime.
+
+### Variables
+
+Variables pull values from your character's profile and are replaced automatically when the prompt is rendered.
+
+**Syntax:** `{variable_name}`
+
+**Example template:**
+
+```text
+Act as {name}
+
+Your short backstory:
+{context}
+
+Personality traits:
+{personality}
+
+Never, ever roleplay actions.
+```
+
+**Rendered output** (using a sample character named Luna):
+
+```text
+Act as Luna
+
+Your short backstory:
+A playful AI fox spirit who lives inside Discord.
+
+Personality traits:
+Witty, playful, curious
+
+Never, ever roleplay actions.
+```
+
+### Available variables
+
+| Variable | Description | Can be empty? |
+|---|---|---|
+| `{name}` | Character name | No |
+| `{context}` | Short backstory | No |
+| `{personality}` | Personality traits | No |
+| `{appearance}` | Appearance | Yes |
+| `{age}` | Age | Yes |
+| `{likes}` | Likes | Yes |
+| `{dislikes}` | Dislikes | Yes |
+| `{user}` | Currently chatting user's display name | No |
+| `{channel}` | Channel of current conversation | No |
+| `{language}` | Language of responses | No |
+| `{answer_length}` | Answer length in words | No |
+| `{general_knowledge}` | General knowledge | Yes |
+| `{relationships}` | Relationships | Yes |
+| `{goals}` | Goals | Yes |
+| `{user_persona}` | Persona of the current user | Yes |
+| `{memories}` | Persistent memories | Yes |
+| `{knowledge_chunks}` | Relevant knowledge base chunks | Yes |
+
+---
+
+## Conditional blocks
+
+Some character fields may be empty (for example, not every character has an appearance set). Conditional blocks let you wrap content so it only appears in the final prompt when the field actually has a value — keeping the prompt clean and preventing the AI from seeing empty sections.
+
+**Syntax:**
+
+```text
+[variable_name]
+Your instructions here...
+{variable_name}
+[/variable_name]
+```
+
+**Example:**
+
+```text
+[appearance]
+Your appearance is the following:
+{appearance}
+[/appearance]
+```
+
+If the character has no appearance set, the entire block — including the label — is removed from the final prompt. The AI never sees an empty "Your appearance is the following:" line.
+
+### Conditional blocks table
+
+| Conditional | Description |
+|---|---|
+| `[is_style_human]` | Renders only when conversation style is set to **Human** |
+| `[is_style_roleplay]` | Renders only when conversation style is set to **Roleplay** |
+| `[is_style_narrator]` | Renders only when conversation style is set to **Narrator** |
+
+AICord automatically evaluates these conditions and includes only the block that matches the character's current conversation style.
+
+---
+
+## Formatting modifiers
+
+Variables that contain lists (such as `{likes}`, `{memories}`, or knowledge entries) can be formatted with **modifiers** appended after a colon.
+
+| Modifier | Example | Output |
+|---|---|---|
+| `:bullet` | `{likes:bullet}` | Renders each item as a bullet point |
+| `:list` | `{likes:list}` | Renders items as a comma-separated list |
+| `:upper` | `{user:upper}` | Renders the value in ALL CAPS (e.g. `PETER`) |
+| `:lower` | `{user:lower}` | Renders the value in all lowercase (e.g. `peter`) |
+
+**Example — `{likes:bullet}`** (with likes set to: ice cream, football, coding, hanging out on Discord):
+
+```text
+- ice cream
+- football
+- coding
+- hanging out on Discord
+```
+
+**Example — `{likes:list}`:**
+
+```text
+ice cream, football, coding, hanging out on Discord
+```

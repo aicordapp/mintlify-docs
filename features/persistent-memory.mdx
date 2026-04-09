@@ -1,0 +1,79 @@
+---
+title: Persistent memory
+description: Give your AI characters long-term memory so they can remember users' plans, events, and relationships across conversations.
+---
+
+<Note>
+  Persistent memory is a **Premium** feature. You need an active premium plan on your server to enable it.
+</Note>
+
+AICord characters have two types of memory that work together to keep conversations contextual and personal.
+
+## Memory types
+
+### Temporary memory
+
+Temporary memory holds the recent messages from a conversation in a channel. This gives your character awareness of what was just discussed — it knows the context and can refer back to earlier parts of the chat.
+
+Temporary memory works like a queue: as new messages arrive, older ones are rotated out. All servers have access to temporary memory. **Premium servers can store up to 50 messages** in conversation history, giving characters a much longer awareness window.
+
+### Persistent memory
+
+Persistent memory is long-term storage. Instead of being held in the character's active context, memories are saved to a database and recalled whenever they become relevant. Characters use this to remember:
+
+- Users' upcoming plans and goals
+- Important events and dates
+- Relationships between users
+- Personal details users have shared
+
+Memories stay saved indefinitely — until a user deletes them.
+
+Each saved memory has a relevance score, and characters can link memories to specific Discord users. This means your character can reference something a user said weeks ago if it's relevant to the current conversation.
+
+**Example:**
+
+A user sends the message:
+
+> I'm going to marry my girlfriend tomorrow, do you have any suggestion?
+
+The character saves the following to its persistent memory:
+
+> petertill is going to marry his girlfriend
+
+The next time that user interacts with the character, it can reference this memory naturally in its response.
+
+## Trigger keywords
+
+Characters are more likely to save a message to persistent memory when it contains certain keywords. You don't need to use these words exactly — they serve as signals that something important is worth remembering.
+
+<AccordionGroup>
+  <Accordion title="View full list of trigger keywords">
+    ```
+    remember, recall, I told you, you said, as we discussed, previously mentioned,
+    important to note, key point, for future reference, to keep in mind, don't forget,
+    let's record, write this down, planning to, going to, decided to, intend to,
+    want to, wish to, aim to, preparing to, about to, will be, shall, my goal is,
+    my objective is, tomorrow, yesterday, next week, last month, on, at, the event of,
+    the occasion of, the anniversary of, during the, after the, before the, to, at, in,
+    visiting, traveling to, the location of, the site of, the area of, the region of,
+    met, talked to, relationship with, friend of, enemy of, family of, associated with,
+    my, the artifact of, the item of, the possession of, the property of, the tool of,
+    I feel, I'm happy, I'm sad, I'm angry, I'm excited, I'm afraid, I'm concerned,
+    I'm worried, if, when, in the event of, provided that
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## How to enable persistent memory
+
+<Steps>
+  <Step title="Open the AICord Dashboard">
+    Go to [dashboard.aicordapp.com](https://dashboard.aicordapp.com) and sign in.
+  </Step>
+  <Step title="Edit a character">
+    Select the character you want to update and open its settings. Scroll down to the **Advanced** section, or use the sidebar to navigate directly to it.
+  </Step>
+  <Step title="Enable persistent memory">
+    Under **Time and Memory**, toggle on **"Persistent memory"**.
+  </Step>
+</Steps>

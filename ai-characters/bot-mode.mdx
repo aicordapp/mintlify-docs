@@ -1,0 +1,89 @@
+---
+title: Bot Mode
+description: Give your AI character its own Discord bot identity, hosted by AICord.
+---
+
+Bot mode lets your AI character run as its own standalone Discord bot. Instead of responding through the main AICord bot, your character gets its own username, profile picture, and bot account — hosted entirely by AICord. You own the bot and control its configuration; AICord handles the hosting and AI service.
+
+This guide assumes you already have an AICord AI character set up in your Discord server.
+
+<Tip>
+  Once your bot is active, you may be eligible for the **Active Developer** badge on Discord — a neat perk if you collect Discord profile badges.
+</Tip>
+
+## Step 1: Creating a Discord bot
+
+<Steps>
+  <Step title="Create your Discord application">
+    1. Go to the [Discord Developer Portal](https://discord.com/developers/applications).
+    2. Click **New Application**.
+    3. Give it a name. This is for your reference in the Developer Portal — it doesn't have to match your character's name.
+    4. Click **Create**.
+
+    Optionally, you can set a name and image here, but the bot's actual display name and avatar are set separately in the **Bot** tab.
+  </Step>
+  <Step title="Turn the application into a bot">
+    1. Inside your new application, click the **Bot** tab in the left sidebar.
+    2. Click **Add Bot**, then confirm with **Yes, do it!**
+
+    You'll now see your bot user — this is what appears in Discord servers.
+  </Step>
+  <Step title="Set the display name and profile picture">
+    Still in the **Bot** tab:
+
+    1. Click the avatar to upload a profile picture. A 512×512 image works best.
+    2. Click the bot's username to change it. This is the name that appears in chat.
+    3. Click **Save Changes**. It may take a few minutes to update across Discord.
+  </Step>
+  <Step title="Set the required permissions">
+    1. In the left sidebar, go to **OAuth2 → URL Generator**.
+    2. Under **Scopes**, check `bot`.
+    3. Under **Bot Permissions**, select the permissions your bot needs. For most AICord bots, choosing **Administrator** is recommended — it gives your character full capability within your server.
+    4. Copy the generated URL at the bottom and open it in your browser to invite the bot to your server.
+
+    <Warning>
+      Keep your bot token private. If your bot has Administrator permissions and someone gets access to your token, they can cause serious damage to any server the bot is in. If your token is ever exposed, regenerate it immediately in the Bot tab.
+    </Warning>
+  </Step>
+  <Step title="Enable privileged intents">
+    1. In the **Bot** tab, scroll down to **Privileged Gateway Intents**.
+    2. Enable the following:
+       - **Message Content Intent** — required for your bot to read message text.
+       - **Server Members Intent** — required for your bot to access member information and personalize responses.
+    3. Click **Save Changes**.
+  </Step>
+  <Step title="Get the bot token">
+    1. Still in the **Bot** tab, click **Reset Token** and confirm.
+    2. Copy the token that appears.
+
+    You'll paste this token into the AICord dashboard in the next step.
+  </Step>
+</Steps>
+
+## Step 2: Enabling bot mode in AICord
+
+<Steps>
+  <Step title="Open the character editor">
+    1. Go to [dashboard.aicordapp.com](https://dashboard.aicordapp.com).
+    2. Make sure the correct server is selected in the side panel.
+    3. Click the robot icon and go to **My Characters**.
+    4. Find the character you want to enable bot mode for and click **Edit**.
+  </Step>
+  <Step title="Paste your bot token and enable bot mode">
+    1. In the character editor, select **Bot Mode** from the side panel.
+    2. Paste the bot token you copied from the Discord Developer Portal.
+    3. Click **Turn on bot** at the bottom of the section.
+
+    If everything is configured correctly, you'll see a confirmation notification.
+  </Step>
+  <Step title="Test your bot character">
+    1. Make sure your bot has been added to a Discord server with the necessary permissions.
+    2. Verify that:
+       - The bot shows as online (refresh Discord or wait a moment if needed).
+       - @mentioning the bot by its username triggers a response.
+       - Replying to the bot's messages also triggers a response.
+       - Sending it a direct message gets a reply.
+
+    If you run into errors or unexpected behavior, adjust your bot configuration or reach out on the [AICord support server](https://discord.aicordapp.com).
+  </Step>
+</Steps>

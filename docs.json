@@ -1,0 +1,67 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "AICord Docs",
+  "theme": "almond",
+  "favicon": "https://media.brand.dev/9612dbb1-3d59-484d-bdc5-fd9353b69e16.png",
+  "colors": {
+    "primary": "#accb83",
+    "light": "#7284fc"
+  },
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/aicordapp"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "frequently-asked-questions"
+            ]
+          },
+          {
+            "group": "AI Characters",
+            "pages": [
+              "ai-characters/your-first-character",
+              "ai-characters/bot-mode",
+              "ai-characters/prompt-commands"
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "features/commands",
+              "features/image-generation",
+              "features/persistent-memory",
+              "features/ai-models"
+            ]
+          },
+          {
+            "group": "Premium",
+            "pages": [
+              "premium/overview",
+              "premium/voices-and-voice-cloning",
+              "premium/voice-calls",
+              "premium/god-mode-prompt",
+              "premium/applets"
+            ]
+          },
+          {
+            "group": "Legal",
+            "pages": [
+              "legal/privacy-policy",
+              "legal/terms-of-service",
+              "legal/data-retention"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

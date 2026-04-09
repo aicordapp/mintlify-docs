@@ -1,0 +1,37 @@
+---
+title: Image generation
+description: Generate images in your Discord server using AI models including Stable Diffusion, Animagine XL, and Flux.
+---
+
+AICord lets you generate images directly in Discord using the `/imagine` slash command.
+
+## Using `/imagine`
+
+Run the command in any Discord channel with a prompt and an optional style:
+
+```text
+/imagine [prompt] [style]
+```
+
+- **prompt** — describe the image you want to generate. Be as specific as you like.
+- **style** — an optional modifier that influences the look and feel of the output (for example, cinematic, anime, portrait).
+
+<Note>
+  `/imagine` costs **20 tokens** per use. Servers on the Unlimited or Supercool plan are not charged tokens.
+</Note>
+
+## Available models
+
+AICord supports multiple image generation models. The model used depends on your server's plan:
+
+| Model | Free | Premium |
+|---|---|---|
+| Stable Diffusion 3.5 Large | ✅ | ✅ |
+| Animagine XL 3.0 | ✅ | ✅ |
+| Flux | ❌ | ✅ |
+
+**Stable Diffusion 3.5 Large** delivers strong image quality with good prompt understanding. **Animagine XL 3.0** specializes in anime-style artwork. **Flux** is the most realistic and capable model, and can even generate readable text within images.
+
+<Tip>
+  Premium servers get access to **Flux** — the most realistic image generation model available on AICord. Upgrade your server's plan to unlock it.
+</Tip>

@@ -1,0 +1,51 @@
+---
+title: AI models
+description: An overview of the image generation and character engine models available on free and premium AICord servers.
+---
+
+AICord supports multiple AI models for both image generation and character conversations. The models available to your server depend on your plan.
+
+<Note>
+  More models are planned. AICord will continue adding new options for both image generation and character engines.
+</Note>
+
+## Image generation models
+
+| Model | Free | Premium |
+|---|---|---|
+| Stable Diffusion 3.5 Large | ✅ | ✅ |
+| Animagine XL 3.0 | ✅ | ✅ |
+| Flux | ❌ | ✅ |
+
+- **Stable Diffusion 3.5 Large** — a solid all-purpose text-to-image model with strong image quality and complex prompt understanding.
+- **Animagine XL 3.0** — optimized for anime-style images and characters.
+- **Flux** — the most realistic image generation engine available on AICord. It can generate readable text within images and handles complex prompts exceptionally well. Premium only.
+
+## Character engines
+
+Character engines power the AI conversations your characters have with users.
+
+| Model | Free | Premium |
+|---|---|---|
+| Gemini 1.5 Flash | ✅ (global rate limit) | ✅ |
+| Gemini 2.0 Flash | ✅ (global rate limit) | ✅ |
+| Llama 3 Instruct | ✅ (NSFW fallback) | ✅ |
+| Llama 4 | ❌ | ✅ (Coming Soon) |
+| GPT-4o | ❌ | ✅ (Coming Soon) |
+| DeepSeek R1 | ❌ | ✅ (Coming Soon) |
+| BYOK (your own API key) | ❌ | ✅ (Coming Soon) |
+
+Free servers can use Gemini models subject to a global rate limit. Llama 3 Instruct is available as a fallback on free servers when Gemini cannot handle NSFW content.
+
+## BYOK — bring your own key
+
+Premium servers will be able to use their own API keys to power characters with any model from a supported provider. This gives you access to the latest models from each provider without waiting for AICord to add them directly.
+
+### Supported providers
+
+| Provider | Key length | Key prefix |
+|---|---|---|
+| Google | 39 characters | `AIza` |
+| OpenAI | 164 characters | `sk-proj` |
+| Anthropic | 108 characters | `sk-ant-` |
+| Grok | 84 characters | `xai-` |

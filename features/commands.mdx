@@ -1,0 +1,49 @@
+---
+title: Commands
+description: A reference for all available AICord slash commands and context menu actions, including token costs and usage examples.
+---
+
+AICord uses a **token system** to power its AI features. Each generation command costs a certain number of tokens per use. You earn tokens through voting and can claim them daily.
+
+<Note>
+  Servers on the **Unlimited** or **Supercool** plan have infinite tokens — commands never consume tokens on these servers.
+</Note>
+
+## Character commands
+
+These commands create and manage your AI characters. They do not consume tokens.
+
+| Command | Usage | Description |
+|---|---|---|
+| `/character create` | `/character create` | Create a new AI character (opens a setup flow) |
+| `/character startsession` | `/character startsession` | Start a session where your character replies to every message in the channel (Premium) |
+| `/character clonevoice` | `/character clonevoice` | Clone a custom voice for a character from a `.wav` file (Advanced plan) |
+| `/call` | `/call` | Invite a Bot Mode character into the current voice channel |
+| `/endcall` | `/endcall` | End the voice call and remove the character from the channel |
+| `/togglert` | `/togglert` | Toggle experimental real-time mode on or off |
+| `/token claim` | `/token claim` | Claim your free daily tokens |
+
+## Generation commands
+
+These slash commands generate AI content directly in your Discord channels. Token costs apply (unless your server is on Unlimited or Supercool plan).
+
+| Command | Usage | Description | Token cost |
+|---|---|---|---|
+| `/write` | `/write [prompt]` | Generate texts and essays with AI | 2.5 |
+| `/imagine` | `/imagine [prompt] [style]` | Generate images with Flux | 20 |
+| `/image ask` | `/image ask [image] [question]` | Ask questions about an image | 5 |
+| `/createrecipe` | `/createrecipe [image]` | Create a recipe based on a food image | 10 |
+| `/askdocument` | `/askdocument [document] [question]` | Ask questions from a document | 0 |
+| `/summarize webpage` | `/summarize webpage [url]` | Summarize the text content of a website | 5 |
+
+## Context menu
+
+Context menu actions appear when you right-click a message in Discord. No slash command needed.
+
+| Action | How to use | Description | Token cost |
+|---|---|---|---|
+| Summarize with AI | Right-click a message → **Apps** → **Summarize with AI** | Summarize any text message | 5 |
+
+<Tip>
+  You can claim free tokens every day using `/token claim`. You also earn **70 tokens** each time you vote for AICord — vote daily to keep your token balance topped up.
+</Tip>
