@@ -65,5 +65,8 @@
       }
     ]
   },
-  "logo": "/images/logo_new.png"
+  "logo": "/images/logo_new.png",
+  "background": {
+    "decoration": "gradient"
+  }
 }
