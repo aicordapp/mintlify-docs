@@ -1,0 +1,182 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AICord Chat API",
+    "description": "API for sending messages to characters and receiving AI-generated responses.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/chat": {
+      "post": {
+        "summary": "Send a chat message",
+        "description": "Sends a message payload to a specific character and receives a response containing the generated text, usage stats, and triggered tools.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response from the character",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request (e.g., malformed JSON)"
+          },
+          "401": {
+            "description": "Unauthorized (missing or invalid Authorization header)"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Provide your authorization token here."
+      }
+    },
+    "schemas": {
+      "ChatRequest": {
+        "type": "object",
+        "required": [
+          "character",
+          "messages"
+        ],
+        "properties": {
+          "character": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The UUID of the target character.",
+            "example": "8f4295c6-307a-4388-99eb-ab4e17bf01ff"
+          },
+          "messages": {
+            "type": "array",
+            "description": "The conversation history/messages payload.",
+            "items": {
+              "$ref": "#/components/schemas/Message"
+            }
+          }
+        }
+      },
+      "Message": {
+        "type": "object",
+        "required": [
+          "role",
+          "content"
+        ],
+        "properties": {
+          "role": {
+            "type": "string",
+            "description": "The role of the message sender (e.g., user, assistant).",
+            "example": "user"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContentPart"
+            }
+          }
+        }
+      },
+      "ContentPart": {
+        "type": "object",
+        "required": [
+          "type",
+          "text"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of content block.",
+            "example": "text"
+          },
+          "text": {
+            "type": "string",
+            "description": "The actual text content of the message.",
+            "example": "Hey, how do I make an applet in AICord? Check docs"
+          }
+        }
+      },
+      "ChatResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the chat response.",
+            "example": "chat-prf9za6oc"
+          },
+          "created": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Unix timestamp (in milliseconds) of when the response was created.",
+            "example": 1780151710507
+          },
+          "character": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The UUID of the character that generated the response.",
+            "example": "8f4295c6-307a-4388-99eb-ab4e17bf01ff"
+          },
+          "text": {
+            "type": "string",
+            "description": "The generated text response from the AI."
+          },
+          "tools_used": {
+            "type": "array",
+            "description": "A list of tools the AI triggered to generate the response.",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "searchDocumentation"
+            ]
+          },
+          "selfie": {
+            "type": "string",
+            "nullable": true,
+            "description": "URL or data for an attached selfie, if applicable.",
+            "example": null
+          },
+          "voice_message": {
+            "type": "string",
+            "nullable": true,
+            "description": "URL or data for an attached voice message, if applicable.",
+            "example": null
+          },
+          "usage": {
+            "type": "number",
+            "format": "float",
+            "description": "Token or compute usage for the request.",
+            "example": 0.00033214
+          }
+        }
+      }
+    }
+  }
+}

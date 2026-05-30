@@ -78,5 +78,8 @@
   },
   "styling": {
     "eyebrows": "breadcrumbs"
+  },
+  "api": {
+    "openapi": "openapi.json"
   }
 }
