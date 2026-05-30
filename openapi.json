@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/api/v1",
+      "url": "https://aicordapp.com/api/v1",
       "description": "Local development server"
     }
   ],
@@ -58,7 +58,7 @@
         "type": "apiKey",
         "in": "header",
         "name": "Authorization",
-        "description": "Provide your authorization token here."
+        "description": "Provide your AICord API key here."
       }
     },
     "schemas": {
@@ -72,7 +72,7 @@
           "character": {
             "type": "string",
             "format": "uuid",
-            "description": "The UUID of the target character.",
+            "description": "The ID of the target character.",
             "example": "8f4295c6-307a-4388-99eb-ab4e17bf01ff"
           },
           "messages": {
@@ -94,6 +94,10 @@
           "role": {
             "type": "string",
             "description": "The role of the message sender (e.g., user, assistant).",
+            "enum": [
+              "user",
+              "character"
+            ],
             "example": "user"
           },
           "content": {
@@ -113,6 +117,10 @@
         "properties": {
           "type": {
             "type": "string",
+            "enum" : [
+              "text",
+              "image_url"
+            ],
             "description": "The type of content block.",
             "example": "text"
           },
