@@ -17,7 +17,13 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Untitled Tab"
+        "tab": "API",
+        "icon": "message-code",
+        "dropdowns": [
+          {
+            "dropdown": "Untitled Dropdown"
+          }
+        ]
       },
       {
         "tab": "Documentation",
