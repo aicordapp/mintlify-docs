@@ -71,7 +71,8 @@
               "legal/data-retention"
             ]
           }
-        ]
+        ],
+        "icon": "book-sparkles"
       }
     ]
   },
