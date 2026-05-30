@@ -1,0 +1,40 @@
+---
+title: "Get response"
+tag: "POST"
+---
+
+Send a request to an AI character
+
+<RequestExample>
+
+```python filename
+import requests
+import json
+
+url = "http://localhost:3000/api/v1/chat"
+
+payload = json.dumps({
+  "character": "8f4295c6-307a-4388-99eb-ab4e17bf01ff",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hey, how do I make an applet in AICord? Check docs"
+        }
+      ]
+    }
+  ]
+})
+headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer sk-aicord-3HGNY8LK7lxR_txOIrkNfvNa120P6aNGUfgLs3RpgwxygilhL530zSwC84hcdvIQ'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+</RequestExample>

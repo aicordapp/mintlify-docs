@@ -19,9 +19,17 @@
       {
         "tab": "API",
         "icon": "message-code",
-        "dropdowns": [
+        "versions": [
           {
-            "dropdown": "Untitled Dropdown"
+            "version": "v1",
+            "groups": [
+              {
+                "group": "Chat",
+                "pages": [
+                  "post-chat"
+                ]
+              }
+            ]
           }
         ]
       },
