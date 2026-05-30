@@ -20,7 +20,10 @@
         "tab": "API",
         "icon": "message-code",
         "pages": [
-          "post-chat"
+          {
+            "group": "Endpoints",
+            "openapi": "openapi.json"
+          }
         ]
       },
       {
