@@ -77,13 +77,13 @@
     ]
   },
   "logo": "/images/logo_new.png",
-  "background": {
-    "decoration": "gradient"
-  },
   "styling": {
     "eyebrows": "breadcrumbs"
   },
   "api": {
     "openapi": "openapi.json"
+  },
+  "icons": {
+    "library": "lucide"
   }
 }
