@@ -5,6 +5,23 @@ tag: "POST"
 
 Send a request to an AI character
 
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  The Authorization header expects a **Bearer token**. Use your AICord API key (prefixed with `sk-aicord-`). This is a secret key that authenticates your requests. Generate one on the API keys section in account settings.
+</ParamField>
+
+### Body
+
+<ParamField body="character" type="string" required>
+  The ID of one of your characters. You can get this by editing your character and copying from url:\
+  https://aicordapp.com/dashboard/characters/<kbd>8f4295c6-307a-4388-99eb-ab4e17bf01ff</kbd>/edit#basic
+</ParamField>
+
+<ParamField default="fff" type="string">
+  Enter a description
+</ParamField>
+
 <RequestExample>
 
 ```python Request
