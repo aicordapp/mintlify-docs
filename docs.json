@@ -17,16 +17,6 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "API",
-        "icon": "message-code",
-        "pages": [
-          {
-            "group": "Endpoints",
-            "openapi": "openapi.json"
-          }
-        ]
-      },
-      {
         "tab": "Documentation",
         "pages": [
           {
@@ -73,6 +63,16 @@
           }
         ],
         "icon": "book-sparkles"
+      },
+      {
+        "tab": "API",
+        "icon": "message-code",
+        "pages": [
+          {
+            "group": "Endpoints",
+            "openapi": "openapi.json"
+          }
+        ]
       }
     ]
   },
