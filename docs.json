@@ -19,18 +19,8 @@
       {
         "tab": "API",
         "icon": "message-code",
-        "versions": [
-          {
-            "version": "v1",
-            "groups": [
-              {
-                "group": "Chat",
-                "pages": [
-                  "post-chat"
-                ]
-              }
-            ]
-          }
+        "pages": [
+          "post-chat"
         ]
       },
       {
